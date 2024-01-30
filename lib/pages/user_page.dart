@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:finance_app/model/user.dart';
-import 'package:finance_app/pages/show_screen.dart';
+import 'package:finance_app/pages/dsa.dart';
 import 'package:finance_app/widgets/bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_review/in_app_review.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 UserItem user = UserItem();
@@ -271,9 +273,9 @@ class _UserPageState extends State<UserPage> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ReadTermsOrPrivacyScreenView(
-                                link: 'google.com',
+                          builder: (BuildContext context) => const RdXX(
+                                link:
+                                    'https://docs.google.com/document/d/1zKaeGucWjqs8vUfVQ6_GPqlSoLPyZZE8uviDTlft2-g/edit?usp=sharing',
                               )),
                     );
                   },
@@ -300,46 +302,58 @@ class _UserPageState extends State<UserPage> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-                child: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: const Color(0xFFE8EEF3),
-                      borderRadius: BorderRadius.circular(25)),
-                  child: Row(children: [
-                    Image.asset('assets/rate.png'),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    const Text(
-                      'Rate app',
-                      style: TextStyle(
-                          fontFamily: 'SF Pro Text',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    )
-                  ]),
+                child: InkWell(
+                  onTap: () {
+                    InAppReview.instance
+                        .openStoreListing(appStoreId: '6476925159');
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: const Color(0xFFE8EEF3),
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Row(children: [
+                      Image.asset('assets/rate.png'),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      const Text(
+                        'Rate app',
+                        style: TextStyle(
+                            fontFamily: 'SF Pro Text',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400),
+                      )
+                    ]),
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-                child: Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: const Color(0xFFE8EEF3),
-                      borderRadius: BorderRadius.circular(25)),
-                  child: Row(children: [
-                    Image.asset('assets/share.png'),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    const Text(
-                      'Share app',
-                      style: TextStyle(
-                          fontFamily: 'SF Pro Text',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    )
-                  ]),
+                child: InkWell(
+                  onTap: () {
+                    Share.share(
+                        'Check your main financial helper! Download - https://apps.apple.com/us/app/the-grandfin-app/id6476925159');
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                        color: const Color(0xFFE8EEF3),
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Row(children: [
+                      Image.asset('assets/share.png'),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      const Text(
+                        'Share app',
+                        style: TextStyle(
+                            fontFamily: 'SF Pro Text',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400),
+                      )
+                    ]),
+                  ),
                 ),
               ),
               Padding(
@@ -348,9 +362,9 @@ class _UserPageState extends State<UserPage> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ReadTermsOrPrivacyScreenView(
-                                link: 'google.com',
+                          builder: (BuildContext context) => const RdXX(
+                                link:
+                                    'https://docs.google.com/document/d/1H-zrN7QoStrVg0rBNmPoidw4Djaa69wN854K5tYF6js/edit?usp=sharing',
                               )),
                     );
                   },
