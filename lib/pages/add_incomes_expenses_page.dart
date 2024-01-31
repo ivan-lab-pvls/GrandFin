@@ -146,24 +146,24 @@ class _AddIncomesExpensesPageState extends State<AddIncomesExpensesPage> {
                             SizedBox(
                               width: 70,
                               child: TextField(
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly
-                                  ],
-                                  controller: incomeController,
-                                  style: const TextStyle(
-                                      fontFamily: 'SF Pro Text',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                  cursorColor: Colors.black,
-                                  onEditingComplete: () {
-                                    income.cost =
-                                        num.tryParse(incomeController.text)!
-                                            .toDouble();
-                                    setState(() {});
-                                  },
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none)),
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                controller: incomeController,
+                                style: const TextStyle(
+                                    fontFamily: 'SF Pro Text',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14),
+                                cursorColor: Colors.black,
+                                onChanged: (value) {
+                                  income.cost =
+                                      num.tryParse(value)?.toDouble() ?? 0.0;
+                                  setState(() {});
+                                },
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none),
+                              ),
                             )
                           ],
                         ),
