@@ -447,25 +447,25 @@ class _AddIncomesExpensesPageState extends State<AddIncomesExpensesPage> {
                             SizedBox(
                               width: 70,
                               child: TextField(
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly
-                                  ],
-                                  controller: expenseController,
-                                  cursorColor: Colors.black,
-                                  style: const TextStyle(
-                                      fontFamily: 'SF Pro Text',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                  onEditingComplete: () {
-                                    expense.cost =
-                                        num.tryParse(expenseController.text)!
-                                            .toDouble();
-                                    setState(() {});
-                                  },
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none)),
-                            )
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                controller: expenseController,
+                                cursorColor: Colors.black,
+                                style: const TextStyle(
+                                    fontFamily: 'SF Pro Text',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14),
+                                onChanged: (newValue) {
+                                  expense.cost =
+                                      num.tryParse(newValue)!.toDouble();
+                                  setState(() {});
+                                },
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none),
+                              ),
+                            ),
                           ],
                         ),
                         Divider(
@@ -483,19 +483,20 @@ class _AddIncomesExpensesPageState extends State<AddIncomesExpensesPage> {
                             SizedBox(
                               width: 70,
                               child: TextField(
-                                  controller: placeDecription,
-                                  cursorColor: Colors.black,
-                                  style: const TextStyle(
-                                      fontFamily: 'SF Pro Text',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                  onEditingComplete: () {
-                                    expense.description = placeDecription.text;
-                                    setState(() {});
-                                  },
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none)),
-                            )
+                                controller: placeDecription,
+                                cursorColor: Colors.black,
+                                style: const TextStyle(
+                                    fontFamily: 'SF Pro Text',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14),
+                                onChanged: (newValue) {
+                                  expense.description = newValue;
+                                  setState(() {});
+                                },
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none),
+                              ),
+                            ),
                           ],
                         ),
                         Padding(

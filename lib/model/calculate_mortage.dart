@@ -14,11 +14,11 @@ class CalculateMortage {
 
   factory CalculateMortage.fromJson(Map<String, dynamic> parsedJson) {
     return CalculateMortage(
-      creditAmount: parsedJson['creditAmount'] ?? "",
-      accruedInterest: parsedJson['accruedInterest'] ?? "",
-      mountlyPayment: parsedJson['mountlyPayment'] ?? "",
-      debtInterest: parsedJson['debtInterest'] ?? "",
-      mortageTerm: parsedJson['mortageTerm'] ?? "",
+      creditAmount: parsedJson['creditAmount'] ?? 0.0,
+      accruedInterest: parsedJson['accruedInterest'] ?? 0.0,
+      mountlyPayment: parsedJson['mountlyPayment'] ?? 0.0,
+      debtInterest: parsedJson['debtInterest'] ?? 0.0,
+      mortageTerm: parsedJson['mortageTerm'] ?? 0,
     );
   }
 
